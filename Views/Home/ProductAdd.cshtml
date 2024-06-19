@@ -1,0 +1,39 @@
+@model ProductoModel
+
+@{
+    ViewData["Title"] = "Ingresar Nuevos Productos";
+}
+
+<div class="text-center">
+    <h1 class="display-2">Insertar producto nuevo</h1>
+</div>
+
+<div asp-validation-summary="All" class="text-danger"></div>
+
+<form asp-controller="Home" asp-action="ProductAdd" method="post">
+    <div class="mb-3">
+        <label for="ProductName" class="form-label">Nombre del producto</label>
+        <input type="text" class="form-control" id="ProductName" name="ProductName" placeholder="Escriba el producto" />
+    </div>
+    <div class="mb-3">
+        <label for="Description" class="form-label">Descripción</label>
+        <input type="text" class="form-control" id="Description" name="Description" placeholder="Escriba la descripción del producto" />
+    </div>
+    <div class="mb-3">
+        <label for="BrandName" class="form-label">Marca</label>
+        <input type="text" class="form-control" id="BrandName" name="BrandName" placeholder="Escriba la marca a la que pertenece el producto" />
+    </div>
+    <div class="mb-3">
+        <label for="Amount" class="form-label">Cantidad</label>
+        <input type="number" class="form-control" id="Amount" name="Amount" placeholder="Escriba la cantidad" />
+    </div>
+    <div class="mb-3">
+        <label for="Price" class="form-label">Precio</label>
+        <input type="number" class="form-control" id="Price" name="Price" placeholder="Escriba el precio" step="0.01" />
+    </div>
+
+    
+
+    <button type="submit" class="btn btn-primary me-2">Guardar</button>
+    <a asp-controller="Home" asp-action="Producto" class="btn btn-secondary">Regresar</a>
+</form>

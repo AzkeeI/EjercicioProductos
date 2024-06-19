@@ -1,0 +1,26 @@
+@model CategoryModel
+
+@{
+    ViewData["Title"] = "Ingresar Nuevas Categorias";
+}
+
+<div class="text-center">
+    <h1 class="display-2">Insertar Categoria Nueva</h1>
+</div>
+
+<div asp-validation-summary="All" class="text-danger"></div>
+
+<form asp-controller="Category" asp-action="CategoryAdd" method="post">
+    <div class="mb-3">
+        <label for="Name" class="form-label">Nombre de la Categoria</label>
+        <input type="text" class="form-control" id="Name" name="Name" placeholder="Escriba la Categoria" />
+    </div>
+    <div class="mb-3">
+        <label for="Description" class="form-label">Descripción</label>
+        <input type="text" class="form-control" id="Descripcion" name="Descripcion" placeholder="Escriba la descripción de la categoria" />
+    </div>
+    
+
+    <button type="submit" class="btn btn-primary me-2">Guardar</button>
+    <a asp-controller="Category" asp-action="CategoryList" class="btn btn-secondary">Regresar</a>
+</form>

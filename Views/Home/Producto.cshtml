@@ -1,0 +1,48 @@
+
+@model List<ProductoModel>
+
+@{
+    ViewData["Title"] = "Lista de Productos";
+}
+<h1>@ViewData["Title"]</h1>
+
+<p>Aqui se veran todos los productos</p>
+
+
+<div class="text-left">
+    <a asp-controller="Home" asp-action="ProductAdd" class="btn btn-primary mb-3">Agregar Producto</a>
+</div>
+
+<table class="table table-striped">
+    <thead >
+        <tr>
+            
+            <th scope="col">Nombre del producto</th>
+            <th scope="col">Descripción</th>
+            <th scope="col">Marca</th>
+            <th scope="col">Cantidad</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var p in Model)
+        {
+            <tr>
+                
+                <td>@p.ProductName</td>
+                <td>@p.Description</td>
+                <td>@p.BrandName</td>
+                <td>@p.Amount</td>
+                <td>@p.Price</td>
+                <td>
+                    <div class="btn-group" role="group" aria-label="Acciones">
+                        <a class="btn btn-outline-info" asp-controller="Home" asp-action="ProductEdit" asp-route-Id="@p.Id">Editar</a>
+                        <span class="mx-1"></span>
+                        <a class="btn btn-outline-danger" asp-controller="Home" asp-action="ProductForDelete" asp-route-Id="@p.Id">Borrar</a>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

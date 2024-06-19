@@ -1,0 +1,44 @@
+
+@model List<CategoryModel>
+
+@{
+    ViewData["Title"] = "Lista de categorias";
+}
+<h1>@ViewData["Title"]</h1>
+
+<p>Aqui se veran todas las categorias</p>
+
+
+<div class="text-left">
+    <a asp-controller="Category" asp-action="CategoryAdd" class="btn btn-primary mb-3">Agregar Categoria</a>
+</div>
+
+<table class="table table-striped">
+    <thead >
+        <tr>
+            
+            <th scope="col">Nombre de la categoria</th>
+            <th scope="col">Descripción</th>
+            <th scope="col">Acciones</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var p in Model)
+        {
+            <tr>
+                
+                <td>@p.Name</td>
+                <td>@p.Descripcion</td>
+                
+                <td>
+                    <div class="btn-group" role="group" aria-label="Acciones">
+                        <a class="btn btn-outline-info" asp-controller="Category" asp-action="CategoryEdit" asp-route-Id="@p.Id">Editar</a>
+                        <span class="mx-1"></span>
+                        <a class="btn btn-outline-danger" asp-controller="Category" asp-action="CategoryForDelete" asp-route-Id="@p.Id">Borrar</a>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
